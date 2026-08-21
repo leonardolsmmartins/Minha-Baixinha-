@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para minha Baixinha ❤️</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #180b20, #5b214b);
+            color: white;
+            font-family: Georgia, serif;
+            text-align: center;
+        }
+
+        .tela {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 30px;
+        }
+
+        .conteudo {
+            max-width: 650px;
+            width: 100%;
+
+            animation: aparecer 1s ease;
+        }
+
+        .coracao {
+            font-size: 80px;
+
+            animation: pulsar 1.5s infinite;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin: 15px 0;
+        }
+
+        h2 {
+            font-size: 38px;
+            margin-bottom: 25px;
+        }
+
+        p {
+            font-size: 19px;
+            line-height: 1.7;
+        }
+
+        .subtitulo {
+            font-size: 20px;
+            opacity: 0.85;
+            line-height: 1.6;
+        }
+
+        .data {
+            margin-top: 25px;
+
+            font-size: 18px;
+
+            letter-spacing: 5px;
+        }
+
+        button {
+            margin-top: 35px;
+
+            padding: 16px 30px;
+
+            border: 1px solid rgba(255,255,255,0.4);
+
+            border-radius: 50px;
+
+            background: rgba(255,255,255,0.12);
+
+            color: white;
+
+            font-size: 17px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: rgba(255,255,255,0.25);
+
+            transform: scale(1.05);
+        }
+
+        .capitulo {
+            font-size: 13px;
+
+            letter-spacing: 4px;
+
+            opacity: 0.7;
+        }
+
+        .texto {
+            text-align: left;
+
+            margin-top: 25px;
+        }
+
+        .destaque {
+            font-size: 25px;
+
+            font-style: italic;
+
+            margin-top: 30px;
+
+            padding: 20px;
+
+            border-left: 3px solid rgba(255,255,255,0.5);
+        }
+
+        .escondido {
+            display: none;
+        }
+
+        @keyframes pulsar {
+
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.12);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+
+        }
+
+        @keyframes aparecer {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ABERTURA -->
+
+    <section id="abertura" class="tela">
+
+        <div class="conteudo">
+
+            <div class="coracao">
+                ❤️
+            </div>
+
+            <h1>
+                Para minha Baixinha
+            </h1>
+
+            <div class="subtitulo">
+                Uma história que começou muito antes do nosso namoro...
+            </div>
+
+            <div class="data">
+                21 • 10 • 2025
+            </div>
+
+            <button onclick="comecarHistoria()">
+                ✨ Começar nossa história
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- CAPÍTULO 1 -->
+
+    <section id="capitulo1" class="tela escondido">
+
+        <div class="conteudo">
+
+            <div class="capitulo">
+                CAPÍTULO 1
+            </div>
+
+            <h2>
+                Antes de nós
+            </h2>
+
+            <div class="texto">
+
+                <p>
+                    Quando eu era criança, costumava passar bastante
+                    tempo na casa do Carlos Daniel.
+                </p>
+
+                <p>
+                    Ele era uma pessoa muito importante para mim.
+                    Eu ia até lá para brincar, conversar e passar
+                    um tempo com ele.
+                </p>
+
+                <p>
+                    Mas a vida acabou levando o Carlos cedo demais.
+                </p>
+
+                <p>
+                    Ele partiu quando eu tinha 14 anos.
+                </p>
+
+                <p>
+                    E mesmo depois disso, eu continuei frequentando
+                    a casa dos avós dele.
+                </p>
+
+                <p class="destaque">
+                    O que eu ainda não sabia era que,
+                    naquela mesma família, existia alguém que
+                    um dia se tornaria uma das pessoas mais
+                    importantes da minha vida.
+                </p>
+
+                <p>
+                    Só que eu ainda nem conhecia a Mirela.
+                </p>
+
+            </div>
+
+            <button onclick="proximoCapitulo()">
+                Continuar → ❤️
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <script>
+
+        function comecarHistoria() {
+
+            document
+                .getElementById("abertura")
+                .classList
+                .add("escondido");
+
+            document
+                .getElementById("capitulo1")
+                .classList
+                .remove("escondido");
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+
+        function proximoCapitulo() {
+
+            alert(
+                "O próximo capítulo da nossa história ainda está sendo escrito... ❤️"
+            );
+
+        }
+
+    </script>
+
+</body>
+</html>
