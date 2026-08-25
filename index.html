@@ -1,706 +1,1705 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Minha Baixinha ❤️</title>
+<meta charset="UTF-8">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-    body {
-      min-height: 100vh;
-      overflow: hidden;
-      font-family: Georgia, "Times New Roman", serif;
-      background:
-        radial-gradient(circle at center, #4a0715 0%, #1c0208 45%, #080105 100%);
-      color: white;
-    }
+<title>Minha Baixinha ❤️</title>
 
-    /* -------------------------
-       CORAÇÕES FLUTUANTES
-    ------------------------- */
 
-    .hearts {
-      position: fixed;
-      inset: 0;
-      overflow: hidden;
-      pointer-events: none;
-      z-index: 0;
-    }
+<style>
 
-    .heart-float {
-      position: absolute;
-      bottom: -50px;
-      color: #ff214f;
-      font-size: 20px;
-      opacity: 0;
-      animation: subir linear infinite;
-      filter: drop-shadow(0 0 8px rgba(255, 30, 70, .7));
-    }
+/* =====================================================
+   CONFIGURAÇÕES GERAIS
+===================================================== */
 
-    @keyframes subir {
-      0% {
-        transform: translateY(0) rotate(0deg) scale(.7);
-        opacity: 0;
-      }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-      10% {
-        opacity: .7;
-      }
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
 
-      80% {
-        opacity: .5;
-      }
+body {
 
-      100% {
-        transform: translateY(-110vh) rotate(30deg) scale(1.2);
-        opacity: 0;
-      }
-    }
+    overflow: hidden;
 
-    /* -------------------------
-       LIVRO
-    ------------------------- */
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
-    .book {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
+    background:
 
-    .page {
-      width: min(900px, 94vw);
-      min-height: 620px;
-      max-height: 90vh;
-      overflow-y: auto;
-
-      padding: 45px 35px;
-
-      background:
-        linear-gradient(
-          rgba(255,255,255,.96),
-          rgba(255,245,247,.96)
+        radial-gradient(
+            circle at center,
+            #520817 0%,
+            #25030c 45%,
+            #080105 100%
         );
 
-      color: #3a1118;
+    color: white;
 
-      border-radius: 18px;
+}
 
-      box-shadow:
-        0 0 30px rgba(255, 30, 70, .18),
-        0 25px 70px rgba(0,0,0,.6);
 
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+/* =====================================================
+   CORAÇÕES FLUTUANTES
+===================================================== */
 
-      text-align: center;
+.hearts {
 
-      animation: aparecer .8s ease;
-    }
+    position: fixed;
 
-    .page.active {
-      display: flex;
-    }
+    inset: 0;
 
-    @keyframes aparecer {
-      from {
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 1;
+
+}
+
+
+.heart-float {
+
+    position: absolute;
+
+    bottom: -60px;
+
+    color: #ff1744;
+
+    opacity: 0;
+
+    filter:
+
+        drop-shadow(
+            0 0 8px
+            rgba(255, 20, 70, .8)
+        )
+
+        drop-shadow(
+            0 0 18px
+            rgba(255, 20, 70, .4)
+        );
+
+    animation:
+        subir linear forwards;
+
+}
+
+
+@keyframes subir {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(0deg)
+            scale(.7);
+
         opacity: 0;
-        transform: translateY(20px) scale(.97);
-      }
 
-      to {
+    }
+
+
+    10% {
+
+        opacity: .8;
+
+    }
+
+
+    80% {
+
+        opacity: .5;
+
+    }
+
+
+    100% {
+
+        transform:
+            translateY(-115vh)
+            rotate(35deg)
+            scale(1.2);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =====================================================
+   ÁREA DO LIVRO
+===================================================== */
+
+.book-area {
+
+    position: relative;
+
+    z-index: 3;
+
+    width: 100%;
+
+    height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 15px;
+
+}
+
+
+/* =====================================================
+   PÁGINAS
+===================================================== */
+
+.page {
+
+    position: absolute;
+
+    width: min(900px, 94vw);
+
+    height: min(680px, 88vh);
+
+    padding:
+        45px
+        35px
+        105px;
+
+    overflow-y: auto;
+
+    border-radius: 20px;
+
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.98),
+            rgba(255,244,247,.97)
+        );
+
+
+    color: #351019;
+
+
+    box-shadow:
+
+        0 0 30px
+        rgba(255,30,70,.18),
+
+        0 25px 70px
+        rgba(0,0,0,.65);
+
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+
+    opacity: 0;
+
+    visibility: hidden;
+
+
+    transform:
+        translateX(70px)
+        scale(.97);
+
+
+    transition:
+
+        opacity .5s ease,
+
+        transform .5s ease,
+
+        visibility .5s;
+
+}
+
+
+.page.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translateX(0)
+        scale(1);
+
+    z-index: 5;
+
+}
+
+
+/* =====================================================
+   TEXTOS
+===================================================== */
+
+.page h1 {
+
+    font-size:
+        clamp(42px, 8vw, 75px);
+
+    color: #a8002b;
+
+    margin-bottom: 20px;
+
+}
+
+
+.page h2 {
+
+    font-size:
+        clamp(28px, 5vw, 47px);
+
+    color: #a8002b;
+
+    margin-bottom: 25px;
+
+}
+
+
+.page p {
+
+    max-width: 720px;
+
+    font-size:
+        clamp(18px, 2.6vw, 23px);
+
+    line-height: 1.7;
+
+    margin-bottom: 18px;
+
+}
+
+
+.highlight {
+
+    color: #b00035;
+
+    font-weight: bold;
+
+}
+
+
+/* =====================================================
+   CORAÇÃO GRANDE
+===================================================== */
+
+.big-heart {
+
+    font-size:
+        clamp(80px, 15vw, 125px);
+
+    margin-bottom: 20px;
+
+    animation:
+        bater 1.25s infinite;
+
+    filter:
+
+        drop-shadow(
+            0 0 12px
+            #ff1744
+        )
+
+        drop-shadow(
+            0 0 30px
+            rgba(255,0,60,.55)
+        );
+
+}
+
+
+@keyframes bater {
+
+    0%,
+    100% {
+
+        transform:
+            scale(1);
+
+    }
+
+
+    15% {
+
+        transform:
+            scale(1.18);
+
+    }
+
+
+    30% {
+
+        transform:
+            scale(1);
+
+    }
+
+
+    45% {
+
+        transform:
+            scale(1.13);
+
+    }
+
+
+    60% {
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+/* =====================================================
+   NAVEGAÇÃO
+===================================================== */
+
+.navigation {
+
+    position: absolute;
+
+    bottom: 20px;
+
+    left: 0;
+
+    width: 100%;
+
+    padding:
+        0 20px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    z-index: 10;
+
+}
+
+
+button {
+
+    border: none;
+
+    padding:
+        14px 24px;
+
+    border-radius: 50px;
+
+    background:
+        #b00035;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px
+        rgba(120,0,30,.3);
+
+    transition:
+        .25s;
+
+}
+
+
+button:hover {
+
+    transform:
+        translateY(-3px)
+        scale(1.03);
+
+    background:
+        #d00042;
+
+}
+
+
+button:active {
+
+    transform:
+        scale(.94);
+
+}
+
+
+.back {
+
+    background:
+        #6d1b32;
+
+}
+
+
+/* =====================================================
+   DESENHO DO CASAL
+===================================================== */
+
+.couple {
+
+    position: relative;
+
+    width: 270px;
+
+    height: 190px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.person {
+
+    position: absolute;
+
+    bottom: 0;
+
+    width: 90px;
+
+    height: 120px;
+
+    border-radius:
+        45px 45px 20px 20px;
+
+    background:
+        #5a1730;
+
+}
+
+
+.person::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 65px;
+
+    height: 65px;
+
+    border-radius: 50%;
+
+    background:
+        #d99a76;
+
+    left: 12px;
+
+    top: -48px;
+
+}
+
+
+.leo {
+
+    left: 25px;
+
+    transform:
+        scale(1.05);
+
+}
+
+
+.mirela {
+
+    right: 25px;
+
+    height: 100px;
+
+    background:
+        #751d45;
+
+}
+
+
+.mirela::before {
+
+    background:
+        #b96f55;
+
+}
+
+
+/* cabelo cacheado */
+
+.mirela .hair {
+
+    position: absolute;
+
+    width: 78px;
+
+    height: 78px;
+
+    background:
+        #25120f;
+
+    border-radius: 50%;
+
+    top: -62px;
+
+    left: 6px;
+
+    z-index: -1;
+
+    box-shadow:
+
+        12px 8px 0 #25120f,
+
+        -10px 10px 0 #25120f,
+
+        0 15px 0 #25120f;
+
+}
+
+
+/* =====================================================
+   PÁGINA FINAL
+===================================================== */
+
+.final-page {
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            #fff5f7,
+            #ffecef
+        );
+
+}
+
+
+.final-text {
+
+    font-size:
+        clamp(22px, 4vw, 34px) !important;
+
+    line-height:
+        1.55 !important;
+
+    font-weight:
+        bold;
+
+    color:
+        #8f0028;
+
+}
+
+
+.future-wife {
+
+    margin-top: 15px;
+
+    font-size:
+        clamp(38px, 9vw, 76px);
+
+    line-height:
+        1.05;
+
+    color:
+        #a8002b;
+
+    font-weight:
+        bold;
+
+    text-transform:
+        uppercase;
+
+    animation:
+        aparecerEsposa 1.5s ease;
+
+    text-shadow:
+
+        0 0 8px
+        rgba(255,30,70,.2),
+
+        0 0 25px
+        rgba(255,30,70,.15);
+
+}
+
+
+@keyframes aparecerEsposa {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(.6);
+
+    }
+
+    to {
+
         opacity: 1;
-        transform: translateY(0) scale(1);
-      }
+
+        transform:
+            scale(1);
+
     }
 
-    .page h1 {
-      font-size: clamp(38px, 7vw, 70px);
-      color: #a8002b;
-      margin-bottom: 20px;
+}
+
+
+.signature {
+
+    margin-top: 20px;
+
+    font-size: 24px;
+
+    font-style: italic;
+
+    color:
+        #541321;
+
+}
+
+
+/* =====================================================
+   CONTADOR
+===================================================== */
+
+.counter {
+
+    position: fixed;
+
+    bottom: 7px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 20;
+
+    color:
+        rgba(255,255,255,.55);
+
+    font-size: 12px;
+
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .book-area {
+
+        padding:
+            10px;
+
     }
 
-    .page h2 {
-      font-size: clamp(27px, 5vw, 45px);
-      color: #a8002b;
-      margin-bottom: 25px;
+
+    .page {
+
+        width:
+            94vw;
+
+        height:
+            86vh;
+
+        padding:
+            30px
+            20px
+            105px;
+
     }
+
 
     .page p {
-      max-width: 720px;
-      font-size: clamp(18px, 2.5vw, 23px);
-      line-height: 1.75;
-      margin-bottom: 20px;
+
+        line-height:
+            1.55;
+
+        margin-bottom:
+            13px;
+
     }
 
-    .small {
-      font-size: 17px !important;
-      opacity: .75;
+
+    .navigation {
+
+        bottom:
+            17px;
+
     }
 
-    /* -------------------------
-       CORAÇÃO PRINCIPAL
-    ------------------------- */
-
-    .big-heart {
-      font-size: 115px;
-      margin: 10px 0 25px;
-
-      animation: bater 1.25s infinite;
-
-      filter:
-        drop-shadow(0 0 12px #ff1744)
-        drop-shadow(0 0 30px rgba(255, 0, 60, .6));
-    }
-
-    @keyframes bater {
-      0%, 100% {
-        transform: scale(1);
-      }
-
-      15% {
-        transform: scale(1.18);
-      }
-
-      30% {
-        transform: scale(1);
-      }
-
-      45% {
-        transform: scale(1.13);
-      }
-
-      60% {
-        transform: scale(1);
-      }
-    }
-
-    /* -------------------------
-       BOTÕES
-    ------------------------- */
-
-    .buttons {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 20px;
-    }
 
     button {
-      border: none;
-      padding: 15px 28px;
-      border-radius: 50px;
 
-      background: #b00035;
-      color: white;
+        padding:
+            13px 18px;
 
-      font-size: 17px;
-      font-weight: bold;
+        font-size:
+            15px;
 
-      cursor: pointer;
-
-      box-shadow: 0 8px 20px rgba(120,0,30,.3);
-
-      transition: .25s;
     }
 
-    button:hover {
-      transform: translateY(-3px) scale(1.03);
-      background: #d00042;
+
+    .future-wife {
+
+        font-size:
+            clamp(35px, 11vw, 62px);
+
     }
 
-    button:active {
-      transform: scale(.96);
-    }
+}
 
-    /* -------------------------
-       ILUSTRAÇÃO DO CASAL
-    ------------------------- */
 
-    .couple {
-      position: relative;
-      width: 260px;
-      height: 190px;
-      margin: 10px 0 25px;
-    }
+/* =====================================================
+   ROLAGEM
+===================================================== */
 
-    .person {
-      position: absolute;
-      bottom: 0;
-      width: 90px;
-      height: 120px;
-      border-radius: 45px 45px 20px 20px;
-      background: #5a1730;
-    }
+.page::-webkit-scrollbar {
 
-    .person::before {
-      content: "";
-      position: absolute;
-      width: 65px;
-      height: 65px;
-      border-radius: 50%;
-      background: #d99a76;
-      left: 12px;
-      top: -48px;
-    }
+    width:
+        5px;
 
-    .person::after {
-      content: "♥";
-      position: absolute;
-      color: #ff3158;
-      font-size: 24px;
-      top: 48px;
-      left: 32px;
-    }
+}
 
-    .leo {
-      left: 25px;
-      transform: scale(1.05);
-    }
 
-    .mirela {
-      right: 25px;
-      height: 100px;
-      background: #751d45;
-    }
+.page::-webkit-scrollbar-thumb {
 
-    .mirela::before {
-      background: #b96f55;
-    }
+    background:
+        #c95b76;
 
-    /* cabelo cacheado */
+    border-radius:
+        10px;
 
-    .mirela .hair {
-      position: absolute;
-      width: 78px;
-      height: 78px;
-      background: #25120f;
-      border-radius: 50%;
-      top: -62px;
-      left: 6px;
-      z-index: -1;
-      box-shadow:
-        12px 8px 0 #25120f,
-        -10px 10px 0 #25120f,
-        0 15px 0 #25120f;
-    }
+}
 
-    /* -------------------------
-       DESTAQUES
-    ------------------------- */
+</style>
 
-    .highlight {
-      color: #b00035;
-      font-weight: bold;
-    }
-
-    .final {
-      font-size: clamp(25px, 4vw, 38px) !important;
-      font-weight: bold;
-      color: #9e002d;
-      line-height: 1.5 !important;
-    }
-
-    .signature {
-      margin-top: 30px;
-      font-size: 24px;
-      font-style: italic;
-    }
-
-    /* -------------------------
-       CONTADOR DE PÁGINAS
-    ------------------------- */
-
-    .counter {
-      position: fixed;
-      bottom: 15px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 5;
-
-      color: rgba(255,255,255,.6);
-      font-size: 14px;
-    }
-
-    @media (max-width: 600px) {
-
-      .page {
-        min-height: 85vh;
-        padding: 35px 22px;
-      }
-
-      .big-heart {
-        font-size: 90px;
-      }
-
-      .page p {
-        line-height: 1.6;
-      }
-    }
-  </style>
 </head>
+
 
 <body>
 
-  <!-- CORAÇÕES -->
-  <div class="hearts" id="hearts"></div>
+
+<!-- =====================================================
+     CORAÇÕES
+===================================================== -->
+
+<div
+    class="hearts"
+    id="hearts">
+</div>
 
 
-  <main class="book">
 
-    <!-- PÁGINA 1 -->
-    <section class="page active">
+<!-- =====================================================
+     LIVRO
+===================================================== -->
 
-      <div class="big-heart">❤️</div>
+<main class="book-area">
 
-      <h1>Minha Baixinha</h1>
 
-      <p>
-        Eu sei... eu acabei esquecendo o nosso dia 21.
-      </p>
+<!-- =====================================================
+     PÁGINA 1
+===================================================== -->
 
-      <p>
-        Mas antes que você brigue comigo...
-        deixa eu te contar uma coisa. ❤️
-      </p>
+<section class="page active">
 
-      <div class="buttons">
+    <div class="big-heart">
+        ❤️
+    </div>
+
+
+    <h1>
+        Minha Baixinha
+    </h1>
+
+
+    <p>
+
+        Eu sei...
+
+        eu acabei esquecendo
+        o nosso dia 21.
+
+    </p>
+
+
+    <p>
+
+        Mas antes de você brigar comigo...
+
+        deixa eu te contar
+        uma coisa. ❤️
+
+    </p>
+
+
+    <div class="navigation">
+
         <button onclick="nextPage()">
-          Tenho uma coisa para te dizer →
+
+            Tenho uma coisa
+            para te dizer →
+
         </button>
-      </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- PÁGINA 2 -->
-    <section class="page">
 
-      <div class="big-heart">❤️</div>
+<!-- =====================================================
+     PÁGINA 2
+===================================================== -->
 
-      <h2>Feliz 9 meses, meu amor!</h2>
+<section class="page">
 
-      <p>
-        Muitas coisas nós já vivemos juntos.
+    <div class="big-heart">
+        ❤️
+    </div>
+
+
+    <h2>
+        Feliz 9 meses,
+        meu amor!
+    </h2>
+
+
+    <p>
+
+        Muitas coisas nós
+        já vivemos juntos.
+
         E quando eu paro para pensar,
+
         percebo que são quase
-        <span class="highlight">dez anos de histórias</span>
+
+        <span class="highlight">
+            dez anos de histórias
+        </span>
+
         para contar.
-      </p>
 
-      <p>
-        De amigos, companheiros e confidentes...
+    </p>
+
+
+    <p>
+
+        De amigos,
+        companheiros e confidentes...
+
         até chegarmos aqui.
-      </p>
 
-      <div class="buttons">
-        <button onclick="nextPage()">Continuar ❤️</button>
-      </div>
-
-    </section>
+    </p>
 
 
-    <!-- PÁGINA 3 -->
-    <section class="page">
+    <div class="navigation">
 
-      <div class="couple">
+        <button
+            class="back"
+            onclick="previousPage()">
+
+            ← Voltar
+
+        </button>
+
+
+        <button onclick="nextPage()">
+
+            Continuar ❤️
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PÁGINA 3
+===================================================== -->
+
+<section class="page">
+
+
+    <div class="couple">
 
         <div class="person leo"></div>
 
         <div class="person mirela">
-          <div class="hair"></div>
+
+            <div class="hair"></div>
+
         </div>
 
-      </div>
+    </div>
 
-      <h2>Você me faz feliz.</h2>
 
-      <p>
+    <h2>
+        Você me faz feliz.
+    </h2>
+
+
+    <p>
+
         Nesses nove meses,
+
         você tem me feito
+
         <span class="highlight">
-          o homem mais feliz do mundo.
+
+            o homem mais feliz
+            do mundo.
+
         </span>
-      </p>
 
-      <p>
+    </p>
+
+
+    <p>
+
         Foram tantas risadas,
+
         tantos momentos bons
+
         e tantas lembranças
+
         que eu vou guardar comigo.
-      </p>
 
-      <div class="buttons">
-        <button onclick="nextPage()">Continuar ❤️</button>
-      </div>
-
-    </section>
+    </p>
 
 
-    <!-- PÁGINA 4 -->
-    <section class="page">
+    <div class="navigation">
 
-      <div class="big-heart">💕</div>
+        <button
+            class="back"
+            onclick="previousPage()">
 
-      <h2>Minha Baixinha...</h2>
+            ← Voltar
 
-      <p>
-        Eu espero continuar fazendo você
-        se sentir a mulher mais feliz do mundo.
-      </p>
+        </button>
 
-      <p>
-        Quero que o nosso companheirismo,
-        a nossa cumplicidade e a nossa parceria
-        continuem crescendo a cada dia.
-      </p>
 
-      <p>
-        Quero continuar dividindo a vida com você,
-        rindo com você e criando novas histórias
+        <button onclick="nextPage()">
+
+            Continuar ❤️
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PÁGINA 4
+===================================================== -->
+
+<section class="page">
+
+    <div class="big-heart">
+        💕
+    </div>
+
+
+    <h2>
+        Minha Baixinha...
+    </h2>
+
+
+    <p>
+
+        Eu espero continuar
+        fazendo você se sentir
+
+        <span class="highlight">
+            a mulher mais feliz
+            do mundo.
+        </span>
+
+    </p>
+
+
+    <p>
+
+        Quero que o nosso
+        companheirismo,
+
+        a nossa cumplicidade
+
+        e a nossa parceria
+
+        continuem crescendo
+        a cada dia.
+
+    </p>
+
+
+    <p>
+
+        Quero continuar dividindo
+        a vida com você,
+
+        rindo com você
+
+        e criando novas histórias
         ao seu lado.
-      </p>
 
-      <div class="buttons">
-        <button onclick="nextPage()">Mais uma coisa... ❤️</button>
-      </div>
-
-    </section>
+    </p>
 
 
-    <!-- PÁGINA 5 -->
-    <section class="page">
+    <div class="navigation">
 
-      <div class="big-heart">🥰</div>
+        <button
+            class="back"
+            onclick="previousPage()">
 
-      <h2>Você sabe que é a minha baixinha, né?</h2>
+            ← Voltar
 
-      <p>
+        </button>
+
+
+        <button onclick="nextPage()">
+
+            Mais uma coisa... ❤️
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PÁGINA 5
+===================================================== -->
+
+<section class="page">
+
+    <div class="big-heart">
+        🥰
+    </div>
+
+
+    <h2>
+        Você sabe que é
+        a minha baixinha, né?
+    </h2>
+
+
+    <p>
+
         E sim...
-        você é a minha <span class="highlight">baixinha</span>.
-      </p>
 
-      <p>
+        você é a minha
+
+        <span class="highlight">
+            baixinha.
+        </span>
+
+    </p>
+
+
+    <p>
+
         Pode reclamar.
+
         Pode tentar argumentar.
+
         Pode dizer que não gosta.
-      </p>
 
-      <p>
+    </p>
+
+
+    <p>
+
         Mas não adianta...
-        esse apelido já ganhou um lugar especial
-        no meu coração. 😂❤️
-      </p>
 
-      <p>
-        Porque quando eu falo "minha baixinha",
-        não estou falando apenas do tamanho.
-      </p>
+        esse apelido já ganhou
+        um lugar especial
+        na minha vida. 😂❤️
 
-      <p>
-        Estou falando da pessoa que eu amo,
-        da minha companheira,
-        da minha melhor amiga
-        e da mulher que conquistou meu coração.
-      </p>
-
-      <div class="buttons">
-        <button onclick="nextPage()">Continuar ❤️</button>
-      </div>
-
-    </section>
+    </p>
 
 
-    <!-- PÁGINA 6 -->
-    <section class="page">
+    <p>
 
-      <div class="big-heart">❤️</div>
+        Porque quando eu falo
+        "minha baixinha",
 
-      <h2>Eu te amo muito.</h2>
+        não estou falando
+        apenas do tamanho.
 
-      <p>
-        Muito mais do que às vezes consigo
-        colocar em palavras.
-      </p>
+    </p>
 
-      <p>
-        E se existe uma coisa que eu quero
-        que você nunca esqueça,
-        é que eu quero continuar escolhendo você.
-      </p>
 
-      <p>
+    <p>
+
+        Estou falando da pessoa
+        que eu amo,
+
+        da minha
+
+        <span class="highlight">
+            companheira,
+        </span>
+
+        da minha
+
+        <span class="highlight">
+            melhor amiga,
+        </span>
+
+        da minha
+
+        <span class="highlight">
+            parceira,
+        </span>
+
+        e da pessoa que tornou
+        meus dias muito mais felizes.
+
+    </p>
+
+
+    <div class="navigation">
+
+        <button
+            class="back"
+            onclick="previousPage()">
+
+            ← Voltar
+
+        </button>
+
+
+        <button onclick="nextPage()">
+
+            Continuar ❤️
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PÁGINA 6
+===================================================== -->
+
+<section class="page">
+
+    <div class="big-heart">
+        ❤️
+    </div>
+
+
+    <h2>
+        Eu te amo muito.
+    </h2>
+
+
+    <p>
+
+        Muito mais do que às vezes
+        consigo colocar em palavras.
+
+    </p>
+
+
+    <p>
+
+        E se existe uma coisa que
+        eu quero que você nunca esqueça,
+
+        é que eu quero continuar
+        escolhendo você.
+
+    </p>
+
+
+    <p>
+
         Quero continuar ao seu lado.
+
         Quero continuar rindo com você.
+
         Quero continuar cuidando de você.
-        Quero continuar sendo seu companheiro.
-      </p>
 
-      <div class="buttons">
-        <button onclick="nextPage()">Última página ❤️</button>
-      </div>
+        Quero continuar sendo
+        seu companheiro.
 
-    </section>
+    </p>
 
 
-    <!-- PÁGINA FINAL -->
-    <section class="page">
+    <p>
 
-      <div class="big-heart">❤️</div>
+        Quero estar presente
+        nos seus dias bons,
 
-      <h2>Mirela & Léo</h2>
+        nos seus sonhos,
 
-      <p class="final">
-        Depois de quase dez anos de história,
-        eu descobri que não quero imaginar
-        os próximos anos sem você.
-      </p>
+        nas suas conquistas
 
-      <p class="final">
-        Eu te amo muito,
-        minha baixinha. ❤️
-      </p>
+        e em tudo aquilo
+        que ainda vamos viver.
 
-      <p>
-        Feliz 9 meses para nós.
-      </p>
-
-      <p>
-        Que esses sejam apenas os primeiros
-        nove meses de uma história que ainda
-        tem uma vida inteira para ser escrita.
-      </p>
-
-      <div class="signature">
-        Com amor,<br>
-        <strong>seu gigante ❤️</strong>
-      </div>
-
-    </section>
-
-  </main>
+    </p>
 
 
-  <div class="counter" id="counter">
+    <div class="navigation">
+
+        <button
+            class="back"
+            onclick="previousPage()">
+
+            ← Voltar
+
+        </button>
+
+
+        <button onclick="nextPage()">
+
+            Tem uma última coisa... ❤️
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PÁGINA 7 — FINAL
+===================================================== -->
+
+<section class="page final-page">
+
+
+    <div class="big-heart">
+        ❤️
+    </div>
+
+
+    <h2>
+        Mirela & Léo
+    </h2>
+
+
+    <p class="final-text">
+
+        Depois de quase dez anos
+        de história,
+
+        eu descobri que não quero
+        imaginar os próximos anos
+        sem você.
+
+    </p>
+
+
+    <p class="final-text">
+
+        Eu não quero que a nossa história
+        pare nesses nove meses.
+
+    </p>
+
+
+    <p class="final-text">
+
+        Eu quero meses.
+
+        Quero anos.
+
+        Quero uma vida inteira
+        ao seu lado.
+
+    </p>
+
+
+    <p>
+
+        Quero continuar chamando você
+        de minha baixinha,
+
+        minha melhor amiga,
+
+        minha companheira,
+
+        minha parceira,
+
+        meu amor...
+
+    </p>
+
+
+    <p>
+
+        E um dia...
+
+        quero poder olhar para você
+        e dizer:
+
+    </p>
+
+
+    <div class="future-wife">
+
+        Minha futura esposa ❤️
+
+    </div>
+
+
+    <div class="signature">
+
+        Com amor,
+
+        <br>
+
+        <strong>
+            seu gigante ❤️
+        </strong>
+
+    </div>
+
+
+    <div class="navigation">
+
+        <button
+            class="back"
+            onclick="previousPage()">
+
+            ← Voltar
+
+        </button>
+
+
+        <button onclick="restart()">
+
+            ❤️ Ler novamente
+
+        </button>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     CONTADOR
+===================================================== -->
+
+<div
+    class="counter"
+    id="counter">
+
     1 / 7
-  </div>
+
+</div>
 
 
-  <script>
 
-    /* -------------------------
-       CRIAR CORAÇÕES
-    ------------------------- */
+<script>
 
-    const heartsContainer =
-      document.getElementById("hearts");
 
-    function createHeart() {
+/* =====================================================
+   CORAÇÕES FLUTUANTES
+===================================================== */
 
-      const heart =
+const hearts =
+    document.getElementById("hearts");
+
+
+function createHeart() {
+
+
+    const heart =
         document.createElement("div");
 
-      heart.classList.add("heart-float");
 
-      heart.innerHTML =
-        Math.random() > 0.5 ? "❤️" : "♥";
+    heart.className =
+        "heart-float";
 
-      heart.style.left =
+
+    heart.innerHTML =
+        Math.random() > .5
+        ? "❤️"
+        : "♥";
+
+
+    heart.style.left =
         Math.random() * 100 + "%";
 
-      heart.style.fontSize =
+
+    heart.style.fontSize =
         (10 + Math.random() * 25) + "px";
 
-      heart.style.animationDuration =
+
+    heart.style.animationDuration =
         (7 + Math.random() * 8) + "s";
 
-      heart.style.animationDelay =
-        Math.random() * 4 + "s";
 
-      heartsContainer.appendChild(heart);
+    heart.style.animationDelay =
+        Math.random() * 2 + "s";
 
-      setTimeout(() => {
+
+    hearts.appendChild(heart);
+
+
+    setTimeout(() => {
+
         heart.remove();
-      }, 16000);
-    }
 
-    setInterval(createHeart, 550);
+    }, 16000);
 
-
-    /* -------------------------
-       SISTEMA DE PÁGINAS
-    ------------------------- */
-
-    const pages =
-      document.querySelectorAll(".page");
-
-    const counter =
-      document.getElementById("counter");
-
-    let currentPage = 0;
+}
 
 
-    function showPage(index) {
-
-      pages.forEach(page => {
-        page.classList.remove("active");
-      });
-
-      pages[index].classList.add("active");
-
-      counter.innerText =
-        `${index + 1} / ${pages.length}`;
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    }
+setInterval(
+    createHeart,
+    500
+);
 
 
-    function nextPage() {
 
-      if (currentPage < pages.length - 1) {
+/* =====================================================
+   PÁGINAS
+===================================================== */
+
+const pages =
+    document.querySelectorAll(".page");
+
+
+const counter =
+    document.getElementById("counter");
+
+
+let currentPage = 0;
+
+
+
+function updatePage() {
+
+
+    pages.forEach(
+        (page, index) => {
+
+            page.classList.toggle(
+                "active",
+                index === currentPage
+            );
+
+        }
+    );
+
+
+    counter.textContent =
+        `${currentPage + 1} / ${pages.length}`;
+
+
+}
+
+
+
+/* =====================================================
+   AVANÇAR
+===================================================== */
+
+function nextPage() {
+
+
+    if (
+        currentPage <
+        pages.length - 1
+    ) {
 
         currentPage++;
 
-        showPage(currentPage);
-
-      }
+        updatePage();
 
     }
 
+}
 
-    /* -------------------------
-       TECLADO
-    ------------------------- */
 
-    document.addEventListener("keydown", function(event) {
 
-      if (
-        event.key === "ArrowRight" ||
-        event.key === " "
-      ) {
-        nextPage();
-      }
+/* =====================================================
+   VOLTAR
+===================================================== */
 
-    });
+function previousPage() {
 
-  </script>
+
+    if (
+        currentPage > 0
+    ) {
+
+        currentPage--;
+
+        updatePage();
+
+    }
+
+}
+
+
+
+/* =====================================================
+   RECOMEÇAR
+===================================================== */
+
+function restart() {
+
+    currentPage = 0;
+
+    updatePage();
+
+}
+
+
+
+/* =====================================================
+   TECLADO
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+
+        if (
+            event.key ===
+            "ArrowRight"
+        ) {
+
+            nextPage();
+
+        }
+
+
+        if (
+            event.key ===
+            "ArrowLeft"
+        ) {
+
+            previousPage();
+
+        }
+
+    }
+);
+
+
+
+/* =====================================================
+   DESLIZAR NO CELULAR
+===================================================== */
+
+let touchStartX = 0;
+
+
+document.addEventListener(
+    "touchstart",
+    function(event) {
+
+        touchStartX =
+            event.changedTouches[0]
+            .screenX;
+
+    }
+);
+
+
+document.addEventListener(
+    "touchend",
+    function(event) {
+
+
+        const touchEndX =
+            event.changedTouches[0]
+            .screenX;
+
+
+        const difference =
+            touchStartX -
+            touchEndX;
+
+
+        if (
+            difference > 60
+        ) {
+
+            nextPage();
+
+        }
+
+
+        if (
+            difference < -60
+        ) {
+
+            previousPage();
+
+        }
+
+    }
+);
+
+
+</script>
 
 </body>
+
 </html>
